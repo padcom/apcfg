@@ -1,0 +1,68 @@
+{
+  "name": "apcfg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron backend.js",
+    "build": "vite build",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "postinstall": "electron-builder install-app-deps && npm run update-settings"
+  },
+  "keywords": [],
+  "build": {
+    "files": [
+      "./backend.js",
+      "node_modules/**/*",
+      "build/icons/128x128.png",
+      "build/icons/512x512.png",
+      "./preload.js",
+      {
+        "from": "dist/app",
+        "to": "./",
+        "filter": "**/*"
+      }
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        "msi",
+        "zip"
+      ]
+    }
+  },
+  "author": "Matthias Hryniszak <padcom@gmail.com>",
+  "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "node-mavlink": "^1.0.1-beta.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.2.0",
+    "@vue/compiler-sfc": "^3.0.9",
+    "acorn-private-methods": "^1.0.0",
+    "array-prototype-functions": "^2.11.0",
+    "electron": "^12.0.2",
+    "electron-builder": "^22.10.5",
+    "electron-rebuild": "^2.3.5",
+    "eventemitter2": "^6.4.4",
+    "mavlink-mappings": "^1.0.0-rc.1",
+    "sass": "^1.32.8",
+    "stream": "^0.0.2",
+    "vite": "^2.1.4",
+    "vue": "^3.0.9",
+    "vue-router": "^4.0.5"
+  },
+  "browserslist": [
+    "Chrome 89"
+  ]
+}
