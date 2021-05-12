@@ -1,6 +1,6 @@
 {
   "name": "apcfg",
-  "version": "1.0.0",
+  "version": "1.0.0-prealpha.1",
   "description": "",
   "main": "index.js",
   "scripts": {
